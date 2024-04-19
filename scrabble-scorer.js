@@ -33,12 +33,44 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+
+   console.log("Let's play some scrabble!")
+    let userWord = input.question("Please enter a word to score: ")
+    return userWord 
+}
+
+
+
+
+function simpleScorer(word) {
+   let point = 0
+   for (let i = 0; i < word.length; i++ ) {
+      point += 1
+   } 
+   return point;
 };
+console.log(simpleScorer("katie"));
 
-let simpleScorer;
 
-let vowelBonusScorer;
+
+
+ function vowelBonusScorer(word) {
+   let point = 0
+   let vowel = ['a', 'e', 'i', 'o', 'u']
+   let vowelPoint = 3
+   for (let i =0; i < word.length; i++) {
+   if (vowel.includes(word[i])) {
+      point += 3 
+   } else {
+      point += 1
+   };
+}
+   return point
+
+   }
+   console.log(vowelBonusScorer("katie"));
+    
+
 
 let scrabbleScorer;
 
@@ -51,9 +83,12 @@ function transform() {};
 let newPointStructure;
 
 function runProgram() {
-   initialPrompt();
    
-}
+   let userWord = initialPrompt()
+   // console.log(userWord);
+   console.log(oldScrabbleScorer(userWord));
+};
+   // runProgram()
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
